@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let seconds = Array(0...59)
     
     var timer : Timer?
-    var state : Bool = true
+    var state : Bool = false
     
     var hValue : Int = 0
     var mValue : Int = 0
@@ -130,13 +130,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == hourPicker {
-            label.text = String(hours[row])
+            //label.text = String(hours[row])
             hValue = hours[row]
         } else if pickerView == minutePicker {
-            label.text = String(minutes[row])
+            //label.text = String(minutes[row])
             mValue = minutes[row]
         } else if pickerView == secondPicker {
-            label.text = String(seconds[row])
+            //label.text = String(seconds[row])
             sValue = seconds[row]
         }
     }
