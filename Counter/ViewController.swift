@@ -39,7 +39,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func startTimers() {
-        
+        if state == false {
+            timer?.invalidate()
+        } else if state == true {
+            timer?.fire()
+        }
             //timerHours()
             //timerMinutes()
             timerSeconds()
@@ -54,7 +58,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
      }
      */
     func timerSeconds() {
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerSeconds), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerSeconds), userInfo: nil, repeats: true)
 
     }
     /*
@@ -86,6 +90,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if state == false {
             state = true
             startTimers()
+            
         } else {
             state = false
             timer?.invalidate() // does not stop
