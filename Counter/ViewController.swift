@@ -22,6 +22,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var timer : Timer?
     var state : Bool = false
+    var isValid : Bool? = nil
     
     var hValue : Int = 0
     var mValue : Int = 0
@@ -40,13 +41,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func startTimers() {
         if state == false {
-            timer?.invalidate()
+            pause()
         } else if state == true {
-            timer?.fire()
+            start()
         }
             //timerHours()
             //timerMinutes()
             timerSeconds()
+    }
+    
+    func start() {
+            timer?.invalidate()
+    }
+    
+    func pause() {
+        timer?.invalidate()
     }
     /*
      func timerHours() {
